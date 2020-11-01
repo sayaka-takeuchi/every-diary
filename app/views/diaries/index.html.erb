@@ -1,0 +1,21 @@
+<%= form_with model: @diary, url: diaries_path, id: 'js-form', local: true do |f| %>
+  <%= f.label :text, '今日の成長' %>
+  <%= f.text_field :text, id: 'js-text' %>
+  <%= f.submit '登録', id:'submit' %>
+<% end %>
+    
+<table id="targetTable">
+  <tr>
+    <th class= "post-date">投稿日</th>
+    <th class="content">内容</th>
+    <th colspan="2">編集 / 削除</th>
+  </tr>
+  <% @diaries.reverse.each do |diary| %>
+    <tr id='js-list'>
+      <td><%= l diary.created_at %></td>
+      <td><%= diary.text %></td>
+      <td><%= image_tag 'edit.png', class: 'edit-btn'%></td>
+      <td><%= image_tag 'delete.png', class: 'delete-btn'%></td>
+    </tr>
+  <% end %>
+</table>

@@ -1,0 +1,19 @@
+.delete-btn,
+.edit-btn {
+  height: 20px;
+  width: 20px;
+  opacity: 0.5;
+}
+
+table,
+th,
+td {
+  border: 1px solid #ddd;
+  padding: 5px 10px;
+}
+
+th,
+td {
+  text-align: center;
+}
+
