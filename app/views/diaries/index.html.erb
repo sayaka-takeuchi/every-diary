@@ -1,3 +1,8 @@
+<div class="alert">
+  <%= flash[:notice] %>
+  <%= flash[:alert] %>
+</div>
+
 <%= form_with model: @diary, url: diaries_path, id: 'js-form', local: true do |f| %>
   <%= f.label :text, '今日の成長' %>
   <%= f.text_field :text, id: 'js-text' %>
@@ -15,7 +20,7 @@
       <td><%= l diary.created_at %></td>
       <td><%= diary.text %></td>
       <td><%= image_tag 'edit.png', class: 'edit-btn'%></td>
-      <td><%= image_tag 'delete.png', class: 'delete-btn'%></td>
+      <td><%=link_to image_tag('delete.png', class: 'delete-btn'), diary_path(diary.id), method: :delete %></td>
     </tr>
   <% end %>
 </table>
